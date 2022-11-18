@@ -7,10 +7,10 @@ import json
 
 ##################Load config.json and get environment variables
 with open('config.json','r') as f:
-    config = json.load(f) 
+    config = json.load(f)
 
-dataset_csv_path = os.path.join(config['output_folder_path']) 
-test_data_path = os.path.join(config['test_data_path']) 
+dataset_csv_path = os.path.join(config['output_folder_path'])
+test_data_path = os.path.join(config['test_data_path'])
 
 ##################Function to get model predictions
 def model_predictions():
@@ -29,7 +29,7 @@ def execution_time():
 
 ##################Function to check dependencies
 def outdated_packages_list():
-    #get a list of 
+    #get a list of
 
 
 if __name__ == '__main__':
@@ -42,4 +42,4 @@ if __name__ == '__main__':
 
 
 
-    
+
