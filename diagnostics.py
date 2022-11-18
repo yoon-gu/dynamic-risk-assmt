@@ -14,14 +14,14 @@ dataset_csv_path = os.path.join(config['output_folder_path'])
 test_data_path = os.path.join(config['test_data_path'])
 
 ##################Function to get model predictions
-def model_predictions():
+def model_predictions(testdatacsv):
     #read the deployed model and a test dataset, calculate predictions
     prod_deployment_path = os.path.join(config['prod_deployment_path']) 
 
     model_file_path = os.path.join(prod_deployment_path, 'trainedmodel.pkl')
     with open(model_file_path, 'rb') as f:
         model = pickle.load(f)
-    testdata = pd.read_csv(os.path.join(test_data_path, 'testdata.csv'))
+    testdata = pd.read_csv(testdatacsv)
     X = testdata[['lastmonth_activity', 'lastyear_activity', 'number_of_employees']].values.reshape(-1, 3)
     y = testdata['exited'].values.reshape(-1, 1)
     predicted = model.predict(X)
