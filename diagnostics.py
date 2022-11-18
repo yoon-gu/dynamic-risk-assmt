@@ -81,18 +81,9 @@ def outdated_packages_list():
         cur = []
         recent = []
 
-        for line in strings:
-            name, cur_ver = line.strip().split('==')
-            names.append(name)
-            cur.append(cur_ver)
-            info = subprocess.check_output(['python', '-m', 'pip', 'show', name])
-            recent.append(str(info).split('\\n')[1].split()[1])
+        info = subprocess.check_output(['python', '-m', 'pip', 'list', '--outdated'])
 
-        df['package_name'] = names
-        df['current'] = cur
-        df['recent_available'] = recent
-
-    return df.values.tolist()
+    return str(info)
 
 
 if __name__ == '__main__':
