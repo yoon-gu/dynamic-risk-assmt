@@ -12,6 +12,7 @@ with open('config.json','r') as f:
 
 dataset_csv_path = os.path.join(config['output_folder_path'])
 test_data_path = os.path.join(config['test_data_path'])
+test_data_csv = os.path.join(test_data_path, 'testdata.csv')
 
 ##################Function to get model predictions
 def model_predictions(testdatacsv):
@@ -91,9 +92,11 @@ def outdated_packages_list():
         df['current'] = cur
         df['recent_available'] = recent
 
+    return df.values.tolist()
+
 
 if __name__ == '__main__':
-    model_predictions()
+    model_predictions(test_data_csv)
     dataframe_summary()
     investigation_missing_data()
     execution_time()
