@@ -16,7 +16,7 @@ responses = [response1, response2, response3, response4]
 
 #write the responses to your workspace
 with open('config.json','r') as f:
-    config = json.load(f) 
+    config = json.load(f)
 
 apireturn_path = os.path.join(config['output_model_path'], 'apireturns.txt')
 with open(apireturn_path, 'w') as file:

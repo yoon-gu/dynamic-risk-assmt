@@ -22,6 +22,7 @@ def model_predictions(testdatacsv):
     with open(model_file_path, 'rb') as f:
         model = pickle.load(f)
     testdata = pd.read_csv(testdatacsv)
+
     X = testdata[['lastmonth_activity', 'lastyear_activity', 'number_of_employees']].values.reshape(-1, 3)
     y = testdata['exited'].values.reshape(-1, 1)
     predicted = model.predict(X)
