@@ -30,6 +30,7 @@ def merge_multiple_dataframe():
 
     result = df_list.drop_duplicates()
     result.to_csv(os.path.join(output_folder_path, 'finaldata.csv'), index=False)
+    return result
 
 if __name__ == '__main__':
     merge_multiple_dataframe()
